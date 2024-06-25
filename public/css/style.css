@@ -1,0 +1,65 @@
+/* 
+    SMALL ICONS
+*/
+/* Navigation Buttions */
+.icon-sm{
+    font-size: 2rem;
+}
+
+/* Modal */
+/* .image-lg{
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+} */
+
+/* Like Button -- heart icon */
+.fa-heart{
+    font-size: 1.5rem;
+}
+.xsmall{
+    font-size: 0.65rem;
+}
+
+.icon-lg{
+    font-size: 9rem;
+}
+
+.grid-img{
+    width: 100%;
+    height: 300px;
+    /* Hight is not dynamic. Optimized for widescreen */
+    object-fit: cover;
+}
+
+/* Adjust size of the avatar in edit page */
+.avatar-lg{
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+}
+
+/* Adjust the nav icon */
+.avatar-sm{
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+}
+
+/* Adjust the image/avatar in the profile overview */
+.avatar-md{
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+}
+
+.image-lg{
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+}
+
+.icon-md{
+    font-size: 3.5rem;
+}
+

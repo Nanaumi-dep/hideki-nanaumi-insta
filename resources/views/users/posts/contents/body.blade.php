@@ -47,11 +47,25 @@
         <p class="d-inline fw-light">{{ $post->description }}</p>
         &nbsp;
         <p class="text-danger small">Posted on {{ $post->created_at->diffForHumans() }}</p>
-        <p class="text-uppercase text-muted xsmall">{{ date('M d, Y', strtotime($post->created_at)) }}</p>
-        {{-- strtotime() --> is a builtin function in PHP use to convert the time and date into human readable format --}}
+        
+        <div class="d-flex justify-content-between align-items-center">
+            <p class="text-uppercase text-muted xsmall mb-0">{{ date('M d, Y', strtotime($post->created_at)) }}</p>
+            {{-- strtotime() --> is a builtin function in PHP use to convert the time and date into human readable format --}}
+
+            {{-- Share Buttons --}}
+            <div style="text-align: right">
+                {{-- LINE Share Button --}}
+                <a href="https://social-plugins.line.me/lineit/share?url={{ urlencode(route('post.show', $post->id)) }}" class="btn btn-success btn-sm" target="_blank">
+                    <i class="fa-brands fa-line"></i> Share on LINE
+                </a>
+                {{-- Twitter Share Button --}}
+                <a href="https://x.com/intent/tweet?url={{ urlencode(route('post.show', $post->id)) }}" class="btn btn-dark btn-sm" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i> Share on X
+                </a>
+            </div>
+        </div>
 
         {{-- Comments Section --}}
-
         <div class="mt-3">
             {{-- Show all the comments here --}}
             @if ($post->comments->isNotEmpty())

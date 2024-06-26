@@ -77,6 +77,22 @@
                     <strong>{{ $user->following->count() }}</strong> Following
                 </a>
             </div>
+
+            <div class="col-auto">
+                {{-- Share Buttons --}}
+                <div style="text-align: right">
+                    {{-- LINE Share Button --}}
+                    <a href="https://social-plugins.line.me/lineit/share?url={{ urlencode(route('profile.show', $user->id)) }}" class="btn btn-success btn-sm" target="_blank">
+                        <i class="fa-brands fa-line"></i> Share on LINE
+                    </a>
+                    
+                    {{-- Twitter Share Button --}}
+                    <a href="https://x.com/intent/tweet?url={{ urlencode(route('profile.show', $user->id)) }}" class="btn btn-dark btn-sm" target="_blank">
+                        <i class="fa-brands fa-x-twitter"></i> Share on X
+                    </a>
+                </div>
+            </div>
+
         </div>
 
         <p class="fw-bold">{{ $user->introduction }}</p>

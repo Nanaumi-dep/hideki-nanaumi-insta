@@ -16,7 +16,7 @@
             <div class="form-check form-check-inline">
                 <input type="checkbox" name="category[]" id="{{ $category->name }}" class="form-check-input" value="{{ $category->id }}">
                 <label for="{{ $category->name }}" class="form-check-label">{{ $category->name }}</label>
-            </div>            
+            </div>
         @endforeach
         {{-- Error message here --}}
         @error('category')
@@ -33,7 +33,7 @@
 
         <div class="mb-4">
             <label for="image" class="form-label fw-bold">Image</label>
-            <input type="file" name="image" id="image" class="form-control" aria-roledescription="image-info">
+            <input type="file" name="image" id="image" class="form-control" accept="image/jpeg,image/png,image/gif,video/mp4,video/x-m4v" aria-roledescription="image-info">
             <div class="form-text" id="image-info">
                 The accpetable formats are jpeg, png, and gif only. <br>
                 Max file size is 1048KB.

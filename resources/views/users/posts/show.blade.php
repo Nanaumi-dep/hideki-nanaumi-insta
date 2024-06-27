@@ -18,7 +18,16 @@
 
     <div class="row border shadow">
         <div class="col p-0 border-end">
-            <img src="{{ $post->image }}" alt="post id {{ $post->id }}" class="w-100">
+
+            @if (strpos($post->image, 'data:image') === 0)
+                <img src="{{ $post->image }}" alt="post id {{ $post->id }}" class="w-100">
+            @else
+                <video controls loop class="w-100">
+                    <source src="data:video/mp4;base64,{{ $post->image }}" type="video/mp4">
+                </video>
+            @endif
+
+            
         </div>
         <div class="col-4 px-0 bg-white">
             <div class="card bord-0">

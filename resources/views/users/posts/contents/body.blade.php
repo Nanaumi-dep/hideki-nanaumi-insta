@@ -1,8 +1,26 @@
+<style>
+    .image{
+        height: 400px;
+        object-fit: cover;
+    }
+
+</style>
+
+
 {{-- Clickable image --}}
 <div class="conteiner p-0">
-    <a href="{{ route('post.show',$post->id) }}">
-        <img src="{{ $post->image }}" alt="post id {{ $post->id }}" class="w-100">
-    </a>
+    <div>
+        <a href="{{ route('post.show',$post->id) }}">
+            @if (strpos($post->image, 'data:image') === 0)
+                <img src="{{ $post->image }}" alt="post id {{ $post->id }}" class="w-100 image">
+            @else
+                <video controls loop class="w-100 image">
+                    <source src="{{ $post->image }}" type="{{ $post->image_type }}">
+                </video>
+            @endif
+        </a>
+    </div>
+    
     <div class="card-body">
         {{-- heart icon + no of likes + categories --}}
         <div class="row align-items-center">
@@ -10,7 +28,7 @@
                 @if ($post->isLiked())
                     <form action="{{ route('like.destroy', $post->id) }}" method="post">
                         @csrf
-                        @method('')
+                        @method('DELETE')
                         <button type="submit" class="btn btn-sm shadow-none p-0"><i class="fa-solid fa-heart text-danger"></i></button>
                     </form>
                 @else
@@ -47,7 +65,7 @@
         <p class="d-inline fw-light">{{ $post->description }}</p>
         &nbsp;
         <p class="text-danger small">Posted on {{ $post->created_at->diffForHumans() }}</p>
-        
+
         <div class="d-flex justify-content-between align-items-center">
             <p class="text-uppercase text-muted xsmall mb-0">{{ date('M d, Y', strtotime($post->created_at)) }}</p>
             {{-- strtotime() --> is a builtin function in PHP use to convert the time and date into human readable format --}}
